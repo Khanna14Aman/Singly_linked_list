@@ -1,4 +1,7 @@
 question==>https://leetcode.com/problems/palindrome-linked-list/
+
+Another approach==>https://leetcode.com/submissions/detail/547885671/
+
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
