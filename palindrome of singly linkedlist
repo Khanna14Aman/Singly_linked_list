@@ -1,0 +1,29 @@
+question==>https://leetcode.com/problems/palindrome-linked-list/
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        int i=0;
+        ListNode *curr,*next=NULL,*prev=NULL;
+        curr=head;
+        int length=0;
+        while(curr){
+            length++;
+            curr=curr->next;
+        }
+        curr=head;
+        while(i++ < length/2){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        if(length%2==1)curr=curr->next;
+        while(curr && prev){
+            if(curr->val!=prev->val)return false;
+            curr=curr->next;
+            prev=prev->next;
+        }
+        if(curr || prev)return false;
+        return true;
+    }
+};
